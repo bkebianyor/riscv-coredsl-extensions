@@ -35,17 +35,17 @@ trigger_coredsl2tablegen:
     PARENT_PROJECT_NAME: $CI_PROJECT_NAME
   needs: [build_artifacts]
   trigger:
-    project: scale4edge/coredsl2tablegen
-    branch: b_cicd_dev
+    project: kebi-be/coredsl2tablegen
+    branch: b_cicd_test
     strategy: depend 
         
-trigger_tgc-vp:
-  stage: deploy
-  inherit:
-    variables: false
-  needs: [build_artifacts]
-  trigger:
-   project: scale4edge/tgc-vp
-   branch: b_scale4edge 
-   strategy: depend
+#trigger_tgc-vp:
+ # stage: deploy
+  #inherit:
+   # variables: false
+  #needs: [build_artifacts]
+  #trigger:
+   #project: scale4edge/tgc-vp
+   #branch: b_scale4edge 
+   #strategy: depend
 
