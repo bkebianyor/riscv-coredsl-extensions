@@ -5,32 +5,47 @@ stages:          # List of stages for jobs, and their order of execution
   - deploy
 
 before_script: #
-  - apt update &&  DEBIAN_FRONTEND=noninteractive apt install -y git && \
-      apt clean && rm -rf /var/lib/apt/lists/*
+  - apt update &&  \
+    DEBIAN_FRONTEND=noninteractive apt install -y git && \
+    apt clean && rm -rf /var/lib/apt/lists/*
+
+variables:
+  GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_COMMIT_BRANCH/$CI_PROJECT_NAME
+
 
 build_artifacts: 
   stage: build
   script:
-    - rm -rf Extensions_Files
-    - mkdir -p Extension_Files
+    #Remove previously created artifacts
+    - rm -rf Extensions_Files Test_Files
+    - mkdir -p Extension_Files Test_Files
     - cp *.core_desc *.yaml Extension_Files # Instead copy the modified files (both coreDSL and YAML)
+    - cp *.c Test_Files
   artifacts:
     paths:
     - Extension_Files/*
+    - Test_Files/*
     expire_in: 1 Week
       
 trigger_coredsl2tablegen:
   stage: deploy
+  inherit:
+    variables: false
+  variables:
+    PARENT_PROJECT_NAME: $CI_PROJECT_NAME
   needs: [build_artifacts]
   trigger:
     project: scale4edge/coredsl2tablegen
-    branch: main
+    branch: b_cicd_dev
     strategy: depend 
         
 trigger_tgc-vp:
   stage: deploy
+  inherit:
+    variables: false
   needs: [build_artifacts]
   trigger:
-    project: scale4edge/tgc-vp
-    branch: b_scale4edge 
-    strategy: depend
+   project: scale4edge/tgc-vp
+   branch: b_scale4edge 
+   strategy: depend
+
