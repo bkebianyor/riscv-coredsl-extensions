@@ -1,5 +1,5 @@
 image: ubuntu:20.04
-
+ 
 stages:       # List of stages for jobs, and their order of execution  
   - build
   - deploy
@@ -11,7 +11,6 @@ before_script: #
 
 variables:
   GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_COMMIT_BRANCH/$CI_PROJECT_NAME
-
 
 build_artifacts: 
   stage: build
