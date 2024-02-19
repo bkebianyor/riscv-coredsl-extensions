@@ -35,7 +35,7 @@ trigger_coredsl2tablegen:
     PARENT_PROJECT_NAME: $CI_PROJECT_NAME
   needs: [build_artifacts]
   trigger:
-    project: kebi-be/coredsl2tablegen
+    project: kebi_be/coredsl2tablegen
     branch: b_cicd_test
     strategy: depend 
         
