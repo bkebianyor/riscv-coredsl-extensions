@@ -47,3 +47,4 @@ trigger_coredsl2tablegen:
    #project: scale4edge/tgc-vp
    #branch: b_scale4edge 
    #strategy: depend
+   
