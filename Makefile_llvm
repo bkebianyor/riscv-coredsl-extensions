@@ -1,12 +1,12 @@
 
-TARGET  = test_mac
+TARGET  = test_s4e_mac
 C_SRCS  = $(wildcard *.c) 
 HEADERS = $(wildcard *.h)
 CFLAGS += -O0 -g -I/opt/gcc-riscv/riscv32-unknown-elf/include
 
 BOARD=tgfs-vp
 LINK_TARGET=flash
-RISCV_ARCH:=rv32i_xrbnn
+RISCV_ARCH:=rv32ixs4emac
 RISCV_ABI:=ilp32
 LDFLAGS := -march=rv32i -mabi=$(RISCV_ABI)
 
