@@ -1,0 +1,18 @@
+
+TARGET  = test_mac
+C_SRCS  = $(wildcard *.c) 
+HEADERS = $(wildcard *.h)
+CFLAGS += -O0 -g -I/opt/gcc-riscv/riscv32-unknown-elf/include
+
+BOARD=tgfs-vp
+LINK_TARGET=flash
+RISCV_ARCH:=rv32i_xrbnn
+RISCV_ABI:=ilp32
+LDFLAGS := -march=rv32i -mabi=$(RISCV_ABI)
+
+compiler := $(shell which clang)
+TOOL_DIR=$(dir $(compiler))
+
+TRIPLET=riscv32-unknown-elf
+BSP_BASE = ../bsp
+include $(BSP_BASE)/env/common-clang.mk
