@@ -20,7 +20,7 @@ build_artifacts:
     - rm -rf Extensions_Files Test_Files
     - mkdir -p Extension_Files Test_Files
     - cp *.core_desc *.yaml Extension_Files # Instead copy the modified files (both coreDSL and YAML)
-    - cp *.c Test_Files
+    - cp *.c Make_llvm Test_Files
   artifacts:
     paths:
     - Extension_Files/*
