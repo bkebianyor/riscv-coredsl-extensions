@@ -17,7 +17,7 @@ build_artifacts:
   stage: build
   script:
     #Remove previously created artifacts
-    - ls -al Test_Files
+    - ls -al
     - rm -rf Extensions_Files Test_Files
     - ls -al
     - mkdir -p Extension_Files Test_Files
