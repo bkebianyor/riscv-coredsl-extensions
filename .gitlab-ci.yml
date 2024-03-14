@@ -17,7 +17,9 @@ build_artifacts:
   stage: build
   script:
     #Remove previously created artifacts
+    - ls -al Test_Files
     - rm -rf Extensions_Files Test_Files
+    - ls -al
     - mkdir -p Extension_Files Test_Files
     - cp *.core_desc *.yaml Extension_Files # Instead copy the modified files (both coreDSL and YAML)
     - cp *.c Make_llvm Test_Files
