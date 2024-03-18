@@ -14,5 +14,5 @@ compiler := $(shell which clang)
 TOOL_DIR=$(dir $(compiler))
 
 TRIPLET=riscv32-unknown-elf
-BSP_BASE = ../fw/bsp
+BSP_BASE = ../bsp
 include $(BSP_BASE)/env/common-clang.mk
