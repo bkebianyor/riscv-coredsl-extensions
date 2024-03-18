@@ -41,13 +41,13 @@ trigger_coredsl2tablegen:
     branch: b_cicd_test
     strategy: depend 
         
-#trigger_tgc-vp:
- # stage: deploy
-  #inherit:
-   # variables: false
-  #needs: [build_artifacts]
-  #trigger:
-   #project: scale4edge/tgc-vp
-   #branch: b_scale4edge 
-   #strategy: depend
+trigger_tgc-vp:
+  stage: deploy
+  inherit:
+    variables: false
+  needs: [build_artifacts]
+  trigger:
+    project: scale4edge/tgc-vp
+    branch: b_scale4edge 
+    strategy: depend
    
