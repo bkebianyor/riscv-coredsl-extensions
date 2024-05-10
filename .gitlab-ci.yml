@@ -12,6 +12,7 @@ before_script: #
 
 variables:
   GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_COMMIT_BRANCH/$CI_PROJECT_NAME
+  GIT_SUBMODULE_STRATEGY: recursive
 
 build_artifacts: 
   stage: build
