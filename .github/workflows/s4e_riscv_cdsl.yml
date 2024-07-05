@@ -26,7 +26,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: riscv-core-dsl-files
-        path: $GITHUB-WORKSPACE/*.core_desc   
+        path: /home/runner/work/riscv-coredsl-extensions/riscv-coredsl-extensions/*.core_desc   
     - name: Trigger Seal5 and ETISS Workflow
       uses: peter-evans/repository-dispatch@v3
       with:
