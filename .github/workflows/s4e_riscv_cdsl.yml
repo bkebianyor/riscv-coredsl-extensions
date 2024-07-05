@@ -21,7 +21,7 @@ jobs:
           pwd
           git fetch origin main:main
           var=$(git diff --name-only --diff-filter=d main~ main) 
-          echo $var
+          echo "List of changed files: "$var
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
@@ -31,7 +31,7 @@ jobs:
       uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repositry: ${{ 'kebi/seal5' }}
+        repository: ${{ 'kebi/seal5' }}
         event-type: s4e_cdl_event
 
         
