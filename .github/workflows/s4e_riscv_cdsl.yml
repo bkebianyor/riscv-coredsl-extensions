@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       name: Check Modified Files      
-    - run: 
+    - run: |
           ls -al
           pwd
           var=$(git diff --name-only HEAD^) 
