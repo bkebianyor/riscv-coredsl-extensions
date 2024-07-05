@@ -19,7 +19,8 @@ jobs:
     - run: |
           ls -al
           pwd
-          var=$(git diff --name-only HEAD^) 
+          git fetch origin main:main
+          var=$(git diff --name-only --diff-filter=d main~ main) 
           echo $var
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
