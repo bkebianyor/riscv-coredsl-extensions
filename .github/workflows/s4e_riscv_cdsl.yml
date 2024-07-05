@@ -16,10 +16,11 @@ jobs:
     steps:
     - name: Check Modified Files
       run: |
+          ls -al
           pwd
-          var=$(git diff --name-only HEAD~1 HEAD) 
+          var=$(git diff --name-only HEAD^) 
           echo $var
-    - uses: actions/checkout@v4
+    #- uses: actions/checkout@v4
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
