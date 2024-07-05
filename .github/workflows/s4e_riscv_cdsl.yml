@@ -15,8 +15,14 @@ jobs:
 
     steps:
     - name: Check Modified Files
-      run: ./get_list_modified_files
-      
+      run: |
+        var=$( git diff --name-only HEAD~ HEAD 2>&1) #./get_list_modified_files
+        echo $var
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: riscv-core-dsl-files
+        path: $GITHUB-WORKSPACE/*.core_desc   
     - name: Trigger Seal5 and ETISS Workflow
       uses: peter-evans/repository-dispatch@v3
       with:
