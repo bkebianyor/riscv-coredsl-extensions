@@ -1,6 +1,7 @@
 name: S4E_CDSL_Workflow
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "b_github_ci" ]
   pull_request:
