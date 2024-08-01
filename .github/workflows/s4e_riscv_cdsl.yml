@@ -9,9 +9,9 @@ on:
 
 jobs:
   build:
-    #strategy:
-     # matrix:
-      #  repo: ['kebi/seal5', 'kebi-be/etiss_wysiwyng']
+    strategy:
+      matrix:
+        repo: ['kebi-be/seal5', 'kebi-be/etiss_wysiwyng']
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +32,7 @@ jobs:
       uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.REPO_PA_TOKEN }}
-        repository: ${{ 'kebi-be/seal5' }}
+        repository: ${{ matrix.repo }}
         event-type: s4e_cdl_event
         client-payload: '{"triggered_by": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
 
