@@ -9,9 +9,6 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        repo: ['kebi-be/seal5', 'kebi-be/etiss_wysiwyng']
     runs-on: ubuntu-latest
 
     steps:
