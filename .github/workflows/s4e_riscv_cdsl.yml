@@ -34,6 +34,6 @@ jobs:
         token: ${{ secrets.REPO_PA_TOKEN }}
         repository: ${{ 'kebi-be/seal5' }}
         event-type: s4e_cdl_event
-        client-payload: '{"triggered_by": "${{ github.repository }}, "run_id": "${{ github.run_id }}"}'
+        client-payload: '{"triggered_by": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
 
         
