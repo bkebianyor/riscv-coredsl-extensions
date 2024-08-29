@@ -29,7 +29,7 @@ jobs:
     - name: Trigger Seal5 Workflow
       uses: peter-evans/repository-dispatch@v3
       with:
-        token: ${{ secrets.REPO_PA_TOKEN }}
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
         repository: ${{ 'bkebianyor/seal5'}}
         event-type: s4e_cdl_event
         client-payload: '{"triggered_by": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
@@ -37,7 +37,7 @@ jobs:
     - name: Trigger ETISS Workflow
       uses: peter-evans/repository-dispatch@v3
       with:
-        token: ${{ secrets.REPO_PA_TOKEN }}
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
         repository: ${{ 'bkebianyor/etiss_wysiwyng' }}
         event-type: s4e_cdl_event
         client-payload: '{"triggered_by": "${{ github.repository }}", "run_id": "${{ github.run_id }}"}'
