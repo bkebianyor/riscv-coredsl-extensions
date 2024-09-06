@@ -11,7 +11,7 @@ jobs:
   build:
     strategy:
       matrix:
-        repo: ['kebi/seal5', 'kebi-be/etiss_wysiwyng']
+        repo: ['bkebianyor/seal5', 'bkebianyor/etiss_wysiwyng']
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: riscv-core-dsl-files
-        path: $GITHUB-WORKSPACE/*.core_desc   
+        path: ${{ github.workspace }}/*.core_desc   
     - name: Trigger Seal5 and ETISS Workflow
       uses: peter-evans/repository-dispatch@v3
       with:
